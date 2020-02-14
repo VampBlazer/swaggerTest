@@ -1,0 +1,166 @@
+---
+swagger: "2.0"
+info:
+  version: "v01"
+  title: "PURCHASE_ORDER"
+host: "SIT01AP08SAGT.root.sys:15501"
+basePath: "/ic/api/integration/v1/flows/rest/PURCHASE_ORDER/1.0"
+schemes:
+- "https"
+paths:
+  /privateCustomer:
+    put:
+      operationId: "PUT_purchaseOrder_svc1"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "request-wrapper"
+        required: false
+        schema:
+          $ref: "#/definitions/request-wrapper"
+      responses:
+        default:
+          description: "A sample description of the Response"
+        500:
+          description: "Faults"
+definitions:
+  APIInvocationError:
+    required:
+    - "detail"
+    - "errorCode"
+    - "title"
+    - "type"
+    properties:
+      errorCode:
+        type: "string"
+      detail:
+        type: "string"
+      type:
+        type: "string"
+      title:
+        type: "string"
+      errorDetails:
+        type: "array"
+        items:
+          type: "object"
+  request-wrapper:
+    required:
+    - "purchaseOrder"
+    - "wmInstanceId"
+    properties:
+      privateCustomer:
+        type: "object"
+        properties:
+          HQCompanyCode:
+            type: "string"
+          CompanyCode:
+            type: "string"
+          Company:
+            type: "string"
+          DocumentType:
+            type: "string"
+          OriginalSource:
+            type: "string"
+          ShopCode:
+            type: "string"
+          RelatedPurchaseOrder:
+            type: "object"
+            properties:
+              Number:
+                type: "string"
+              InformationType:
+                type: "string"
+              PoType:
+                type: "string"
+              OrderReference:
+                type: "string"
+              ShopOrderNumber:
+                type: "string"
+              PoHandlingCode:
+                type: "string"
+              orderDate:
+                type: "string"
+              SupplierCode:
+                type: "string"
+              ShipToCode:
+                type: "string"
+              OrderedBy:
+                type: "string"
+          ErpEdiKey:
+            type: "object"
+            properties:
+              Szekco:
+                type: "string"
+              Szedoc:
+                type: "string"
+              Szedct:
+                type: "string"
+              Szedln:
+                type: "string"
+          OriginalPurchaseOrder:
+            type: "object"
+            properties:
+              Company:
+                type: "string"
+              DocumentType:
+                type: "string"
+              Number:
+                type: "string"
+          Invoice:
+            type: "object"
+            properties:
+              InvoiceNumber:
+                type: "string"
+              InvoiceDate:
+                type: "string"
+              OrderDate:
+                type: "string"
+              ShopOrdernumber:
+                type: "string"
+          Detail:
+            type: "object"
+            properties:
+              LineNumber:
+                type: "string"
+              OrigLineNumber:
+                type: "string"
+              ShopOrigLineNumber:
+                type: "string"
+              RequestDate:
+                type: "string"
+          Item:
+            type: "object"
+            properties:
+              AmplifonCode:
+                type: "string"
+              SerialNumber:
+                type: "string"
+              SupplierCode:
+                type: "string"
+              Description:
+                type: "string"
+              EarSide:
+                type: "string"
+              Quantity:
+                type: "string"
+              UnitOfMeasure:
+                type: "string"
+              CurrencyCode:
+                type: "string"
+      wmInstanceId:
+        type: "string"
+  response-wrapper:
+    required:
+    - "resultCode"
+    - "resultDescription"
+    - "wmInstanceId"
+    properties:
+      resultCode:
+        type: "string"
+      resultDescription:
+        type: "string"
+      wmInstanceId:
+        type: "string"
