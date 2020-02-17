@@ -51,7 +51,7 @@ definitions:
     - "purchaseOrder"
     - "wmInstanceId"
     properties:
-      privateCustomer:
+      purchaseOrder:
         type: "object"
         properties:
           HQCompanyCode:
